@@ -2445,7 +2445,7 @@ int API_EXPORTED libusb_init_context(libusb_context **ctx, const struct libusb_i
 	usbi_mutex_static_lock(&active_contexts_lock);
 	if (!active_contexts_list.next) {
 		list_init(&active_contexts_list);
-		usbi_get_monotonic_time(&timestamp_origin);
+		//usbi_get_monotonic_time(&timestamp_origin);
 	}
 	usbi_mutex_static_unlock(&active_contexts_lock);
 
@@ -2810,7 +2810,7 @@ static void log_v(struct libusb_context *ctx, enum libusb_log_level level,
 			log_str(LIBUSB_LOG_LEVEL_DEBUG, "--------------------------------------------------------------------------------" USBI_LOG_LINE_END);
 		}
 
-		usbi_get_monotonic_time(&timestamp);
+		//usbi_get_monotonic_time(&timestamp);
 		TIMESPEC_SUB(&timestamp, &timestamp_origin, &timestamp);
 
 		header_len = snprintf(buf, sizeof(buf),

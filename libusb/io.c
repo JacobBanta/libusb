@@ -1252,7 +1252,7 @@ static void calculate_timeout(struct usbi_transfer *itransfer)
 		return;
 	}
 
-	usbi_get_monotonic_time(&itransfer->timeout);
+	//usbi_get_monotonic_time(&itransfer->timeout);
 
 	itransfer->timeout.tv_sec += timeout / 1000U;
 	itransfer->timeout.tv_nsec += (timeout % 1000U) * 1000000L;
@@ -2071,7 +2071,7 @@ static void handle_timeouts_locked(struct libusb_context *ctx)
 		return;
 
 	/* get current time */
-	usbi_get_monotonic_time(&systime);
+	//usbi_get_monotonic_time(&systime);
 
 	/* iterate through flying transfers list, finding all transfers that
 	 * have expired timeouts */
@@ -2607,7 +2607,7 @@ int API_EXPORTED libusb_get_next_timeout(libusb_context *ctx,
 		return 0;
 	}
 
-	usbi_get_monotonic_time(&systime);
+	//usbi_get_monotonic_time(&systime);
 
 	if (!TIMESPEC_CMP(&systime, &next_timeout, <)) {
 		usbi_dbg(ctx, "first timeout already expired");

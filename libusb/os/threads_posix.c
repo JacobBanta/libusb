@@ -61,7 +61,7 @@ int usbi_cond_timedwait(pthread_cond_t *cond,
 #ifdef HAVE_PTHREAD_CONDATTR_SETCLOCK
 	usbi_get_monotonic_time(&timeout);
 #else
-	usbi_get_real_time(&timeout);
+	//usbi_get_real_time(&timeout);
 #endif
 
 	timeout.tv_sec += tv->tv_sec;
